@@ -1,0 +1,86 @@
+
+<HTML>
+    
+<HEAD>
+    <title>Zerodha</title>
+</HEAD>
+
+
+//html , css  ,js 
+
+<BODY style="font-family: Arial, Helvetica, sans-serif;">
+    <div style="display: flex  ; justify-content : space-between ; align  : center ; padding : 20px 100px ; ">
+        <img src="https://zerodha.com/static/images/logo.svg" alt="zerodha.logo" width="200">
+        <div style=" display : flex ; gap : 20px ; cursor: pointer;" >
+            <a href="https://zerodha.com/open-account/">Sign up</a>
+            <a href="https://zerodha.com/open-account/">Product</a>
+            <a href="https://zerodha.com/open-account/">pricing</a>
+            <a href="https://zerodha.com/open-account/">about us</a>
+            <a href="https://zerodha.com/open-account/">display</a>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div style="display: flex  ; justify-content : center ">
+        
+            <img src="https://zerodha.com/static/images/landing.png" width="700">
+    </div>
+    <br>
+    <br>
+    <br>
+
+   
+       <div style = " display: flex  ; justify-content : center">
+        <p><h1>Invest in everything</h1></p>
+       </div>
+    
+    <center>
+        <p>
+        <h3>Online platform to invest in stocks, derivatives, mutual funds, ETFs, bonds, and more.</h3  >
+        </p>
+    </center>
+
+    <div style="display: flex ; justify-content: center; ">
+    <button
+        style="background-color: rgb(6, 139, 205); border:none; border-radius: 5px; padding: 10px; font-size: 18px; color : white ; cursor: pointer; ">Sign up for free</button>
+
+        
+    </div>
+
+    <div class="calculator">
+        <h3>Portfolio Returns Calculator</h3>
+        <input type="number" id="capital" placeholder="Capital (e.g., 1000000)">
+        <input type="number" id="years" placeholder="Years (e.g., 10)">
+        <input type="number" id="interest" placeholder="Interest % (e.g., 12)">
+        <button onclick="calculateReturns()">Calculate</button>
+        <div class="result" id="result"></div>
+    </div>
+    </div>
+           
+    
+
+</BODY>
+<script>
+    function calculateReturns() {
+        const capital = parseFloat(document.getElementById("capital").value);
+        const years = parseFloat(document.getElementById("years").value);
+        const interest = parseFloat(document.getElementById("interest").value);
+
+        if (isNaN(capital) || isNaN(years) || isNaN(interest)) {
+            document.getElementById("result").innerText = "Please fill all fields correctly.";
+            return;
+        }
+
+        const resultAmount = capital * Math.pow(1 + interest / 100, years);
+        const cr = (resultAmount / 10000000).toFixed(2);  // 1 Cr = 1 Crore = 10,000,000
+
+        document.getElementById("result").innerText = `Returns: ₹${(resultAmount).toLocaleString()} (~${cr} Cr)`;
+    }
+</script>
+
+</HTML>
+`
